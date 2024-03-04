@@ -16,5 +16,5 @@ jobs:
     environment: ${{ matrix.environment }}
     steps:
       - uses: actions/checkout@v3
-      - name: echo APPNAME-ENVNAME-DUMMY_STRING
+      - name: echo Result for ${{ matrix.environment }}
         run: echo ${{ matrix.deploy-key }}-${{ matrix.environment }}-${{ vars.DUMMY_STRING }}
