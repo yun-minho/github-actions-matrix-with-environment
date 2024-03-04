@@ -1,0 +1,19 @@
+name: Deployment with matrices and environments
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        deploy-key: [DEPLOY_APP1, DEPLOY_APP2]
+        environment: [dev, stable, qc]
+    environment: ${{ matrix.environment }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: echo DUMMY_STRING
+        run: echo ${{ matrix.environment }}-${{ vars.DUMMY_STRING }}
