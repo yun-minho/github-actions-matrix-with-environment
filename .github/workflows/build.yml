@@ -9,6 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 1
       matrix:
         deploy-key: [DEPLOY_APP1, DEPLOY_APP2]
         environment: [dev, stable, qc]
